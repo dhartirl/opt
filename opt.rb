@@ -129,7 +129,7 @@ Grid = Struct.new(:height, :width, :origin, :points) do
 
   def discard_paths(paths)
     # This is where the optimization happens
-    num_kept = (paths.size / 3).ceil
+    num_kept = [(paths.size / 3).ceil, 1].max
     @paths_discarded += paths[num_kept..paths.size].size
     paths[0..num_kept]
   end
